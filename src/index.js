@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {IntlProvider} from 'react-intl';
 
 import { observable, decorate } from 'mobx';
 
@@ -19,19 +18,8 @@ decorate(LanguageStore, {
 
 const languageStore = new LanguageStore();
 
-const messages = {
-  "en": {
-    "applicationName": "Reactive I18n Test with React and MobX"
-  },
-  "fi": {
-    "applicationName": "Reaktiivinen internationalisointitesti Reactilla ja MobX:llä"
-  }
-};
-
 ReactDOM.render(
-  <IntlProvider locale={languageStore.language} messages={messages[languageStore.language]}>
-    <App store={languageStore} />
-  </IntlProvider>,
+  <App store={languageStore} />,
   document.getElementById('root')
 );
 
