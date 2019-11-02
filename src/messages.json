@@ -1,0 +1,10 @@
+{
+  "en": {
+    "applicationName": "Reactive I18n Test with React and MobX",
+    "messageLogTitle": "Message Log"
+  },
+  "fi": {
+    "applicationName": "Reaktiivinen internationalisointitesti Reactilla ja MobX:llä",
+    "messageLogTitle": "Viestiloki"
+  }
+}
