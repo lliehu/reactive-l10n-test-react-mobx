@@ -1,3 +1,14 @@
+# Reactive I18n test with React, MobX and React Intl
+
+## TODO
+
+1. Clean up App.js. Perhaps divide it to multiple components?
+2. Message log
+3. All the other functionality present in the Vue.js version.
+4. Check that this works with Docker.
+
+## Some other stuff below
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
