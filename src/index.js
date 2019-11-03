@@ -7,7 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import { observable, decorate } from 'mobx';
 
 class LanguageStore {
-  language = 'en'
+  language = navigator.language
   switchLanguageTo(language) {
     this.language = language;
   }

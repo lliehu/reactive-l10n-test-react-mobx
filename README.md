@@ -2,11 +2,17 @@
 
 ## TODO
 
+### Prioritized
+
 1. Add automatic language selection based on user agent.
 2. Clean up App.js. Perhaps divide it to multiple components?
 3. Message log
 4. All the other functionality present in the Vue.js version.
 5. Check that this works with Docker.
+
+### Unsorted
+
+* Can React Intl be used to localize messages outside component JSX?
 
 ## Some other stuff below
 

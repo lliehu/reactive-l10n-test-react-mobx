@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import LanguageSwitcher from './LanguageSwitcher';
 import { observer } from 'mobx-react';
-import {IntlProvider} from 'react-intl';
+import { IntlProvider } from 'react-intl';
 import MessageLog from './MessageLog';
 import Header from './Header';
 import messages from './messages';
@@ -32,8 +32,13 @@ const mapState = {
 
 const position = [mapState.lat, mapState.lng];
 
+function getMessages(locale) {
+  // TODO Do this better.
+  return messages[locale.substring(0, 2)]
+}
+
 const App = observer((props) => (
-  <IntlProvider locale={props.store.language} messages={messages[props.store.language]}>
+  <IntlProvider locale={props.store.language} messages={getMessages(props.store.language)}>
     <div className="App">
       <Header />
       <LanguageSwitcher store={ props.store }/>
