@@ -13,6 +13,7 @@
 
 ### Unsorted
 
+* Properly use message descriptors of React Intl.
 * Can React Intl be used to localize messages outside component JSX?
 
 ## Some other stuff below
