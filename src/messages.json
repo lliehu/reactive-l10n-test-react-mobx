@@ -2,11 +2,13 @@
   "en": {
     "applicationName": "Reactive I18n Test with React and MobX",
     "messageLogTitle": "Message Log",
-    "languageSwitcherTitle": "Language Selection"
+    "languageSwitcherTitle": "Language Selection",
+    "currentLanguage": "Current language: {language}"
   },
   "fi": {
     "applicationName": "Reaktiivinen internationalisointitesti Reactilla ja MobX:llä",
     "messageLogTitle": "Viestiloki",
-    "languageSwitcherTitle": "Kielivalinta"
+    "languageSwitcherTitle": "Kielivalinta",
+    "currentLanguage": "Nykyinen kieli: {language}"
   }
 }

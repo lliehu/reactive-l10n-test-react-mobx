@@ -12,7 +12,12 @@ const LanguageSwitcher = observer((props) => {
       <h2><FormattedMessage id='languageSwitcherTitle'/></h2>
       <button onClick={switchLanguageTo.bind(null, 'fi')}>Suomi</button>
       <button onClick={switchLanguageTo.bind(null, 'en')}>English</button>
-      <p>Active language: { props.store.language }</p>
+      <p>
+        <FormattedMessage
+          id='currentLanguage'
+          values={{language: props.store.language}}
+        />
+      </p>
     </div>
   );
 });
