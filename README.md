@@ -2,10 +2,11 @@
 
 ## TODO
 
-1. Clean up App.js. Perhaps divide it to multiple components?
-2. Message log
-3. All the other functionality present in the Vue.js version.
-4. Check that this works with Docker.
+1. Add automatic language selection based on user agent.
+2. Clean up App.js. Perhaps divide it to multiple components?
+3. Message log
+4. All the other functionality present in the Vue.js version.
+5. Check that this works with Docker.
 
 ## Some other stuff below
 
