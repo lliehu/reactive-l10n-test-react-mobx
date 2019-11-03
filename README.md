@@ -4,13 +4,12 @@
 
 ### Prioritized
 
-1. Add l10n for Leaflet zoom control (zoom in and out messages)
-2. Improve automatic language selection based on user agent.
+1. Improve automatic language selection based on user agent.
     * Listen for changes to user agent language.
     * Allow to switch back to auto after manually selecting a language.
-3. Clean up App.js. Perhaps divide it to multiple components?
-4. Message log
-5. All the other functionality present in the Vue.js version.
+2. Clean up App.js. Perhaps divide it to multiple components?
+3. Message log
+4. All the other functionality present in the Vue.js version.
 
 ### Unsorted
 

@@ -3,12 +3,16 @@
     "applicationName": "Reactive I18n Test with React and MobX",
     "messageLogTitle": "Message Log",
     "languageSwitcherTitle": "Language Selection",
-    "currentLanguage": "Current language: {language}"
+    "currentLanguage": "Current language: {language}",
+    "zoomInTitle": "Zoom in",
+    "zoomOutTitle": "Zoom out"
   },
   "fi": {
     "applicationName": "Reaktiivinen internationalisointitesti Reactilla ja MobX:llä",
     "messageLogTitle": "Viestiloki",
     "languageSwitcherTitle": "Kielivalinta",
-    "currentLanguage": "Nykyinen kieli: {language}"
+    "currentLanguage": "Nykyinen kieli: {language}",
+    "zoomInTitle": "Lähennä",
+    "zoomOutTitle": "Loitonna"
   }
 }
