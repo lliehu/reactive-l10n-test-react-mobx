@@ -19,9 +19,9 @@ leaflet.Icon.Default.prototype.options.shadowUrl = shadowIcon
 leaflet.Icon.Default.prototype.options.shadowRetinaUrl = shadowIcon
 
 const mapState = {
-  lat: 51.505,
-  lng: -0.09,
-  zoom: 13,
+  lat: 61.45,
+  lng: 23.85,
+  zoom: 12,
 }
 
 const position = [mapState.lat, mapState.lng];
