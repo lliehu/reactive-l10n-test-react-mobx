@@ -18,7 +18,7 @@ const App = observer((props) => (
     <div className="App">
       <Header />
       <LanguageSwitcher store={ props.store }/>
-      <MessageLog />
+      <MessageLog messageList={ props.messageLogStore.messageList } />
       <MapArea />
     </div>
   </IntlProvider>

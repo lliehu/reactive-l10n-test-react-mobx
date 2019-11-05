@@ -22,8 +22,26 @@ decorate(LanguageStore, {
   language: observable,
   manuallySelectedLanguage: observable
 });
-
 const languageStore = new LanguageStore();
+
+class MessageLogStore {
+  messageList = []
+  addLogMessage(messageId, parameters = {}) {
+    this.messageList.push({
+      time: new Date(),
+      messageId,
+      parameters
+    })
+  }
+}
+decorate(MessageLogStore, {
+  messageList: observable
+});
+const messageLogStore = new MessageLogStore();
+
+messageLogStore.addLogMessage('testMessage');
+messageLogStore.addLogMessage('testMessage');
+messageLogStore.addLogMessage('testMessage');
 
 window.addEventListener('languagechange', () => {
   if (!languageStore.manuallySelectedLanguage) {
@@ -32,7 +50,7 @@ window.addEventListener('languagechange', () => {
 })
 
 ReactDOM.render(
-  <App store={languageStore} />,
+  <App store={languageStore} messageLogStore={messageLogStore} />,
   document.getElementById('root')
 );
 
