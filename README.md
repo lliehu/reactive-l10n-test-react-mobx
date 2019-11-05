@@ -4,7 +4,7 @@
 
 ### Prioritized
 
-1. Message log
+1. Be able to add markers to the map and write log messages about those.
 2. All the other functionality present in the Vue.js version.
 
 ### Unsorted
