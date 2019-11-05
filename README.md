@@ -4,9 +4,8 @@
 
 ### Prioritized
 
-1. Clean up App.js. Perhaps divide it to multiple components?
-2. Message log
-3. All the other functionality present in the Vue.js version.
+1. Message log
+2. All the other functionality present in the Vue.js version.
 
 ### Unsorted
 
