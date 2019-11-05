@@ -1,7 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { useIntl } from 'react-intl';
-
+import { useIntl, FormattedMessage } from 'react-intl';
 
 import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -33,19 +32,22 @@ const MapArea = observer((props) => {
   const zoomOutTitle = formatMessage({id: 'zoomOutTitle'});
 
   return (
-    <Map center={position} zoom={mapState.zoom} zoomControl={false}>
-      <TileLayer
-        attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      <Marker position={position}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
-      {/* Using key forces remounting of ZoomControl when zoomInTitle or zoomOutTitle change. */}
-      <ZoomControl zoomInTitle={zoomInTitle} zoomOutTitle={zoomOutTitle} key={zoomInTitle + '|' + zoomOutTitle}/>
-    </Map>
+    <div>
+      <h2><FormattedMessage id='mapTitle'/></h2>
+      <Map center={position} zoom={mapState.zoom} zoomControl={false}>
+        <TileLayer
+          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        <Marker position={position}>
+          <Popup>
+            A pretty CSS3 popup. <br /> Easily customizable.
+          </Popup>
+        </Marker>
+        {/* Using key forces remounting of ZoomControl when zoomInTitle or zoomOutTitle change. */}
+        <ZoomControl zoomInTitle={zoomInTitle} zoomOutTitle={zoomOutTitle} key={zoomInTitle + '|' + zoomOutTitle}/>
+      </Map>
+    </div>
   );
 });
 

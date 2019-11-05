@@ -6,7 +6,8 @@
     "currentLanguage": "Current language: {language}",
     "zoomInTitle": "Zoom in",
     "zoomOutTitle": "Zoom out",
-    "automaticLanguage": "Automatic"
+    "automaticLanguage": "Automatic",
+    "mapTitle": "Map"
   },
   "fi": {
     "applicationName": "Reaktiivinen internationalisointitesti Reactilla ja MobX:llä",
@@ -15,6 +16,7 @@
     "currentLanguage": "Nykyinen kieli: {language}",
     "zoomInTitle": "Lähennä",
     "zoomOutTitle": "Loitonna",
-    "automaticLanguage": "Automaattinen"
+    "automaticLanguage": "Automaattinen",
+    "mapTitle": "Kartta"
   }
 }
