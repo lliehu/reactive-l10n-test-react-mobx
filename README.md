@@ -4,12 +4,9 @@
 
 ### Prioritized
 
-1. Improve automatic language selection based on user agent.
-    * Listen for changes to user agent language.
-    * Allow to switch back to auto after manually selecting a language.
-2. Clean up App.js. Perhaps divide it to multiple components?
-3. Message log
-4. All the other functionality present in the Vue.js version.
+1. Clean up App.js. Perhaps divide it to multiple components?
+2. Message log
+3. All the other functionality present in the Vue.js version.
 
 ### Unsorted
 
