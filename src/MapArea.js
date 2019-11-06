@@ -31,6 +31,7 @@ const MapArea = observer((props) => {
   const zoomInTitle = formatMessage({id: 'zoomInTitle'});
   const zoomOutTitle = formatMessage({id: 'zoomOutTitle'});
 
+  // TODO Is using a ref here really a good idea?
   const mapRef = React.createRef();
 
   function addMarker(event) {
