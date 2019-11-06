@@ -19,7 +19,7 @@ const App = observer((props) => (
       <Header />
       <LanguageSwitcher store={ props.store }/>
       <MessageLog messageList={ props.messageLogStore.messageList } />
-      <MapArea />
+      <MapArea messageLogStore={props.messageLogStore} />
     </div>
   </IntlProvider>
 ));

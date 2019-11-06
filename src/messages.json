@@ -8,7 +8,8 @@
     "zoomOutTitle": "Zoom out",
     "automaticLanguage": "Automatic",
     "mapTitle": "Map",
-    "testMessage": "Testing, 1, 2, 3..."
+    "testMessage": "Testing, 1, 2, 3...",
+    "markerAddedMessage": "Marker was added to the map at {position}."
   },
   "fi": {
     "applicationName": "Reaktiivinen internationalisointitesti Reactilla ja MobX:llä",
@@ -19,6 +20,7 @@
     "zoomOutTitle": "Loitonna",
     "automaticLanguage": "Automaattinen",
     "mapTitle": "Kartta",
-    "testMessage": "Kokeillaan, 1, 2, 3..."
+    "testMessage": "Kokeillaan, 1, 2, 3...",
+    "markerAddedMessage": "Merkki lisättiin kartalle kohtaan {position}."
   }
 }

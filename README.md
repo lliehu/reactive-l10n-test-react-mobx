@@ -4,7 +4,7 @@
 
 ### Prioritized
 
-1. Be able to add markers to the map and write log messages about those.
+1. Fix broken re-render of MessageLog. When new messages are added, the component does not seem to re-render. Why?
 2. All the other functionality present in the Vue.js version.
 
 ### Unsorted

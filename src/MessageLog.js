@@ -7,7 +7,7 @@ const MessageLog = (props) => (
       <FormattedMessage id='messageLogTitle'/>
     </h2>
     { props.messageList.map((message, index) => (
-      <p>
+      <p key={index}>
         [<FormattedDate value={message.time}/>]&nbsp;
         <FormattedMessage id={message.messageId} values={message.parameters}/>
       </p>
