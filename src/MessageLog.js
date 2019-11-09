@@ -1,7 +1,8 @@
 import React from 'react';
+import { observer } from 'mobx-react';
 import { FormattedDate, FormattedMessage } from 'react-intl';
 
-const MessageLog = (props) => (
+const MessageLog = observer((props) => (
   <div>
     <h2>
       <FormattedMessage id='messageLogTitle'/>
@@ -13,6 +14,6 @@ const MessageLog = (props) => (
       </p>
     )) }
   </div>
-);
+));
 
 export default MessageLog;
