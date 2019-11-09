@@ -5,7 +5,9 @@
 ### Prioritized
 
 1. Fix broken re-render of MessageLog. When new messages are added, the component does not seem to re-render. Why? It's a list, maybe that's why. See https://mobx.js.org/best/react.html
-2. All the other functionality present in the Vue.js version.
+2. Add commenting functionality to markers.
+3. All the other functionality present in the Vue.js version.
+4. Test some in-context localization tool.
 
 ### Unsorted
 
