@@ -13,6 +13,16 @@
 * Properly use message descriptors of React Intl.
 * Can React Intl be used to localize messages outside component JSX?
 
+## Project setup
+
+```
+docker-compose up
+```
+
+This will create a Docker container and run `npm install`.
+
+If Dockerfile has been changed, the image needs to be rebuilt with `docker-compose build`.
+
 ## Some other stuff below
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
