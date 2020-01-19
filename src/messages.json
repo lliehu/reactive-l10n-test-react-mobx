@@ -1,6 +1,6 @@
 {
   "en": {
-    "applicationName": "Reactive I18n Test with React and MobX",
+    "applicationName": "Reactive Localization Test with React and MobX",
     "messageLogTitle": "Message Log",
     "languageSwitcherTitle": "Language Selection",
     "currentLanguage": "Current language: {language}",
@@ -12,7 +12,7 @@
     "markerAddedMessage": "Marker was added to the map at {position}."
   },
   "fi": {
-    "applicationName": "Reaktiivinen internationalisointitesti Reactilla ja MobX:llä",
+    "applicationName": "Reaktiivinen lokalisointitesti Reactilla ja MobX:llä",
     "messageLogTitle": "Viestiloki",
     "languageSwitcherTitle": "Kielivalinta",
     "currentLanguage": "Nykyinen kieli: {language}",
