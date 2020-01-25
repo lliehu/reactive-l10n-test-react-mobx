@@ -2,8 +2,7 @@ import React from 'react';
 import './App.css';
 import LanguageSwitcher from './LanguageSwitcher';
 import { observer } from 'mobx-react';
-import { IntlProvider, FormattedMessage } from 'react-intl';
-import { Helmet } from "react-helmet";
+import { IntlProvider } from 'react-intl';
 import MessageLog from './MessageLog';
 import Header from './Header';
 import messages from './messages';
@@ -17,9 +16,6 @@ function getMessages(locale) {
 const App = observer((props) => (
   <IntlProvider locale={props.store.language} messages={getMessages(props.store.language)}>
     <div className="App">
-      <Helmet>
-        <title>Test</title>
-      </Helmet>
       <Header />
       <LanguageSwitcher store={ props.store }/>
       <MessageLog messageList={ props.messageLogStore.messageList } />
