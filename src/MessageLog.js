@@ -9,7 +9,13 @@ const MessageLog = observer((props) => (
     </h2>
     { props.messageList.map((message, index) => (
       <p key={index}>
-        [<FormattedDate value={message.time}/>]&nbsp;
+        [
+          <FormattedDate
+            value={message.time}
+            year="numeric" month="numeric" day="numeric"
+            hour="numeric" minute="numeric" second="numeric"
+          />
+        ]&nbsp;
         <FormattedMessage id={message.messageId} values={message.parameters}/>
       </p>
     )) }
