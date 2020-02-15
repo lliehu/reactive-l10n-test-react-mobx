@@ -28,7 +28,7 @@ const MapNavigator = (props) => {
           getOptionLabel={option => option.name}
           renderInput={params => (<TextField {...params} fullWidth/>)}
           onChange={(event, value) => {
-            setSelectedCoordinates(value && value.coordinates || null)
+            setSelectedCoordinates((value && value.coordinates) || null)
           }}
         />
       </div>
