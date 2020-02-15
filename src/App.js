@@ -6,6 +6,7 @@ import { IntlProvider } from 'react-intl';
 import MessageLog from './MessageLog';
 import Header from './Header';
 import messages from './messages';
+import MapNavigator from './MapNavigator';
 import MapArea from './MapArea';
 
 function getMessages(locale) {
@@ -19,7 +20,8 @@ const App = observer((props) => (
       <Header />
       <LanguageSwitcher store={ props.store }/>
       <MessageLog messageList={ props.messageLogStore.messageList } />
-      <MapArea messageLogStore={props.messageLogStore} />
+      <MapNavigator store={props.mapStore} />
+      <MapArea messageLogStore={props.messageLogStore} store={props.mapStore} />
     </div>
   </IntlProvider>
 ));

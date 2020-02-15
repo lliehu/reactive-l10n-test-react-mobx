@@ -5,9 +5,11 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import LanguageStore from './LanguageStore';
 import MessageLogStore from './MessageLogStore';
+import MapStore from './MapStore';
 
 const languageStore = new LanguageStore();
 const messageLogStore = new MessageLogStore();
+const mapStore = new MapStore();
 
 messageLogStore.addLogMessage('testMessage');
 messageLogStore.addLogMessage('testMessage');
@@ -20,7 +22,7 @@ window.addEventListener('languagechange', () => {
 })
 
 ReactDOM.render(
-  <App store={languageStore} messageLogStore={messageLogStore} />,
+  <App store={languageStore} messageLogStore={messageLogStore} mapStore={mapStore} />,
   document.getElementById('root')
 );
 

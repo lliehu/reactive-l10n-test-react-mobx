@@ -46,7 +46,7 @@ const MapArea = observer((props) => {
   return (
     <div>
       <h2><FormattedMessage id='mapTitle'/></h2>
-      <Map center={position} zoom={mapState.zoom} zoomControl={false}
+      <Map center={props.store.center} zoom={mapState.zoom} zoomControl={false}
         onClick={addMarker} ref={mapRef}
       >
         <TileLayer
