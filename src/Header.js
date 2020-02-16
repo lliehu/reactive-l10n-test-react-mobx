@@ -1,17 +1,20 @@
 import React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Helmet } from "react-helmet";
+import Typography from '@material-ui/core/Typography';
 
 const Header = (props) => {
   const intl = useIntl();
 
   return (
-  <h1>
+  <div style={{flexGrow: 1, textAlign: 'left'}}>
     <Helmet>
-      <title>{intl.formatMessage({id: 'applicationName'})}</title>
+        <title>{intl.formatMessage({id: 'applicationName'})}</title>
     </Helmet>
-    <FormattedMessage id='applicationName'/>
-  </h1>
+    <Typography variant="h6">
+      <FormattedMessage id='applicationName'/>
+    </Typography>
+  </div>
   );
 };
 

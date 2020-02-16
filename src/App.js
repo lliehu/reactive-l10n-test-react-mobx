@@ -10,6 +10,8 @@ import MapNavigator from './MapNavigator';
 import MapArea from './MapArea';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { enUS, fiFI } from '@material-ui/core/locale';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 
 function getMessages(locale) {
   // TODO Do this better.
@@ -28,8 +30,12 @@ const App = observer((props) => (
   <IntlProvider locale={props.store.language} messages={getMessages(props.store.language)}>
     <ThemeProvider theme={getTheme(props.store.language)}>
       <div className="App">
-        <Header />
-        <LanguageSwitcher store={ props.store }/>
+        <AppBar position="sticky">
+          <Toolbar>
+            <Header />
+            <LanguageSwitcher store={ props.store }/>
+        </Toolbar>
+        </AppBar>
         <MessageLog messageList={ props.messageLogStore.messageList } />
         <MapNavigator store={props.mapStore} />
         <MapArea messageLogStore={props.messageLogStore} store={props.mapStore} />

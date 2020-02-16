@@ -24,24 +24,35 @@ const LanguageSwitcher = observer((props) => {
     props.store.enableAutomaticUILanguage();
   }
 
+  function isAutomaticLanguageSelected() {
+    return !props.store.manuallySelectedLanguage;
+  }
+
+  function isLanguageSelected(languageCode) {
+    return !!props.store.manuallySelectedLanguage && props.store.language === languageCode;
+  }
+
   return (
-    <div>
-      <h2><FormattedMessage id='languageSwitcherTitle'/></h2>
-      <ButtonGroup color="primary">
-        <Button onClick={enableAutomaticUILanguage} variant={ !props.store.manuallySelectedLanguage ? 'contained' : 'outlined' } disableElevation>
+      <ButtonGroup color="inherit">
+        <Button
+          onClick={enableAutomaticUILanguage}
+          variant={ isAutomaticLanguageSelected() ? 'contained' : 'outlined' }
+          color={ isAutomaticLanguageSelected() ? 'default' : 'inherit' }
+          disableElevation
+        >
           <FormattedMessage id='automaticLanguage'/>
         </Button>
         {languages.map(language => (
           <Button
             onClick={switchLanguageTo.bind(null, language.code)}
-            variant={ !!props.store.manuallySelectedLanguage && props.store.language === language.code ? 'contained' : 'outlined'}
+            variant={ isLanguageSelected(language.code) ? 'contained' : 'outlined' }
+            color={ isLanguageSelected(language.code) ? 'default' : 'inherit' }
             disableElevation
           >
             {language.nativeName}
           </Button>
         ))}
       </ButtonGroup>
-    </div>
   );
 });
 
