@@ -8,21 +8,33 @@ import Header from './Header';
 import messages from './messages';
 import MapNavigator from './MapNavigator';
 import MapArea from './MapArea';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { enUS, fiFI } from '@material-ui/core/locale';
 
 function getMessages(locale) {
   // TODO Do this better.
   return messages[locale.substring(0, 2)]
 }
 
+function getTheme(locale) {
+  let materialUiLocale = enUS;
+  if (locale.substring(0, 2) === 'fi') {
+    materialUiLocale = fiFI;
+  }
+  return createMuiTheme({}, materialUiLocale);
+}
+
 const App = observer((props) => (
   <IntlProvider locale={props.store.language} messages={getMessages(props.store.language)}>
-    <div className="App">
-      <Header />
-      <LanguageSwitcher store={ props.store }/>
-      <MessageLog messageList={ props.messageLogStore.messageList } />
-      <MapNavigator store={props.mapStore} />
-      <MapArea messageLogStore={props.messageLogStore} store={props.mapStore} />
-    </div>
+    <ThemeProvider theme={getTheme(props.store.language)}>
+      <div className="App">
+        <Header />
+        <LanguageSwitcher store={ props.store }/>
+        <MessageLog messageList={ props.messageLogStore.messageList } />
+        <MapNavigator store={props.mapStore} />
+        <MapArea messageLogStore={props.messageLogStore} store={props.mapStore} />
+      </div>
+    </ThemeProvider>
   </IntlProvider>
 ));
 
