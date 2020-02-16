@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { useIntl, FormattedMessage } from 'react-intl';
+import { injectIntl, FormattedMessage } from 'react-intl';
 
 import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -26,43 +26,51 @@ const mapState = {
 
 const position = [mapState.lat, mapState.lng];
 
-const MapArea = observer((props) => {
-  const { formatMessage } = useIntl();
-  const zoomInTitle = formatMessage({id: 'zoomInTitle'});
-  const zoomOutTitle = formatMessage({id: 'zoomOutTitle'});
-
-  // TODO Is using a ref here really a good idea?
-  const mapRef = React.createRef();
-
-  function addMarker(event) {
-    props.messageLogStore.addLogMessage('markerAddedMessage', {
-      position: event.latlng.toString()
-    })
-    let marker = leaflet.marker(event.latlng)
-    marker.bindPopup(event.latlng.toString())
-    marker.addTo(mapRef.current.leafletElement)
+class MapArea extends React.Component {
+  render() {
+    const zoomInTitle = this.props.intl.formatMessage({id: 'zoomInTitle'});
+    const zoomOutTitle = this.props.intl.formatMessage({id: 'zoomOutTitle'});
+  
+    // TODO Is using a ref here really a good idea?
+    this.mapRef = React.createRef();
+  
+    function addMarker(event) {
+      this.props.messageLogStore.addLogMessage('markerAddedMessage', {
+        position: event.latlng.toString()
+      })
+      let marker = leaflet.marker(event.latlng)
+      marker.bindPopup(event.latlng.toString())
+      marker.addTo(this.mapRef.current.leafletElement)
+    }
+  
+    return (
+      <div>
+        <h2><FormattedMessage id='mapTitle'/></h2>
+        <Map center={this.props.store.center} zoom={mapState.zoom} zoomControl={false}
+          onClick={addMarker} ref={this.mapRef}
+        >
+          <TileLayer
+            attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={position}>
+            <Popup>
+              A pretty CSS3 popup. <br /> Easily customizable.
+            </Popup>
+          </Marker>
+          {/* Using key forces remounting of ZoomControl when zoomInTitle or zoomOutTitle change. */}
+          <ZoomControl zoomInTitle={zoomInTitle} zoomOutTitle={zoomOutTitle} key={zoomInTitle + '|' + zoomOutTitle}/>
+        </Map>
+      </div>
+    );
   }
 
-  return (
-    <div>
-      <h2><FormattedMessage id='mapTitle'/></h2>
-      <Map center={props.store.center} zoom={mapState.zoom} zoomControl={false}
-        onClick={addMarker} ref={mapRef}
-      >
-        <TileLayer
-          attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={position}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
-        {/* Using key forces remounting of ZoomControl when zoomInTitle or zoomOutTitle change. */}
-        <ZoomControl zoomInTitle={zoomInTitle} zoomOutTitle={zoomOutTitle} key={zoomInTitle + '|' + zoomOutTitle}/>
-      </Map>
-    </div>
-  );
-});
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    // TODO Somehow this doesn't work yet.
+    if (this.props.store.centerTimestamp !== prevProps.store.centerTimestamp && this.mapRef) {
+      this.mapRef.current.leafletElement.flyTo(this.props.store.center);
+    }
+  }
+}
 
-export default MapArea;
+export default observer(injectIntl(MapArea));
