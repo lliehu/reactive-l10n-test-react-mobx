@@ -31,33 +31,28 @@ const MapArea = observer((props) => {
   const zoomInTitle = formatMessage({id: 'zoomInTitle'});
   const zoomOutTitle = formatMessage({id: 'zoomOutTitle'});
 
-  // TODO Is using a ref here really a good idea?
-  const mapRef = React.createRef();
-
   function addMarker(event) {
     props.messageLogStore.addLogMessage('markerAddedMessage', {
       position: event.latlng.toString()
     })
-    let marker = leaflet.marker(event.latlng)
-    marker.bindPopup(event.latlng.toString())
-    marker.addTo(mapRef.current.leafletElement)
+    props.store.addMarker(event.latlng)
   }
 
   return (
     <div>
       <h2><FormattedMessage id='mapTitle'/></h2>
       <Map center={props.store.center} zoom={mapState.zoom} zoomControl={false}
-        onClick={addMarker} ref={mapRef}
+        onClick={addMarker}
       >
         <TileLayer
           attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={position}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
-        </Marker>
+        { props.store.markerList.map((marker, index) => (
+          <Marker key={index} position={marker}>
+            <Popup>Foobar</Popup>
+          </Marker>
+        )) }
         {/* Using key forces remounting of ZoomControl when zoomInTitle or zoomOutTitle change. */}
         <ZoomControl zoomInTitle={zoomInTitle} zoomOutTitle={zoomOutTitle} key={zoomInTitle + '|' + zoomOutTitle}/>
       </Map>
