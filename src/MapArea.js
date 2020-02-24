@@ -31,8 +31,6 @@ const mapState = {
   zoom: 12,
 }
 
-const position = [mapState.lat, mapState.lng];
-
 const MapArea = observer((props) => {
   const { formatMessage } = useIntl();
   const zoomInTitle = formatMessage({id: 'zoomInTitle'});
