@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { observer } from 'mobx-react';
 import { useIntl, FormattedMessage } from 'react-intl';
+
+import Button from '@material-ui/core/Button';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import TextField from '@material-ui/core/TextField';
 
 import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -31,6 +38,9 @@ const MapArea = observer((props) => {
   const zoomInTitle = formatMessage({id: 'zoomInTitle'});
   const zoomOutTitle = formatMessage({id: 'zoomOutTitle'});
 
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const toggle = () => setDialogOpen(!dialogOpen);
+
   function addMarker(event) {
     props.messageLogStore.addLogMessage('markerAddedMessage', {
       position: event.latlng.toString()
@@ -50,12 +60,39 @@ const MapArea = observer((props) => {
         />
         { props.store.markerList.map((marker, index) => (
           <Marker key={index} position={marker}>
-            <Popup>Foobar</Popup>
+            <Popup>
+              {(props.store.markerComments[marker] || []).map((comment) => (
+                <p>
+                  <span>
+                    {comment.time.toString()}
+                  </span>
+                  <br/>
+                  {comment.text}
+                </p>
+              ))}
+              <Button variant="contained" color="primary" onClick={toggle}><FormattedMessage id='addNewCommentButton'/></Button>
+            </Popup>
           </Marker>
         )) }
         {/* Using key forces remounting of ZoomControl when zoomInTitle or zoomOutTitle change. */}
         <ZoomControl zoomInTitle={zoomInTitle} zoomOutTitle={zoomOutTitle} key={zoomInTitle + '|' + zoomOutTitle}/>
       </Map>
+      <Dialog open={dialogOpen} onClose={toggle}>
+        <DialogTitle>
+          <FormattedMessage id='addNewCommentTitle'/>
+        </DialogTitle>
+        <DialogContent>
+          <TextField multiline/>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={toggle} color="primary">
+            <FormattedMessage id='addNewCommentButton'/>
+          </Button>
+          <Button onClick={toggle} color="secondary">
+            <FormattedMessage id='cancelButton'/>
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 });
