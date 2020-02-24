@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react';
-import { useIntl, FormattedMessage } from 'react-intl';
+import { useIntl, FormattedDate, FormattedMessage } from 'react-intl';
 
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -37,7 +37,14 @@ const MapArea = observer((props) => {
   const zoomOutTitle = formatMessage({id: 'zoomOutTitle'});
 
   const [dialogOpen, setDialogOpen] = useState(false);
-  const toggle = () => setDialogOpen(!dialogOpen);
+  const open = (marker) => {
+    setSelectedMarker(marker);
+    setDialogOpen(true);
+  };
+  const close = () => {
+    setDialogOpen(false);
+    setNewMarkerCommentText('');
+  }
 
   function addMarker(event) {
     props.messageLogStore.addLogMessage('markerAddedMessage', {
@@ -45,6 +52,9 @@ const MapArea = observer((props) => {
     })
     props.store.addMarker(event.latlng)
   }
+
+  const [selectedMarker, setSelectedMarker] = useState(null);
+  const [newMarkerCommentText, setNewMarkerCommentText] = useState('');
 
   return (
     <div>
@@ -62,31 +72,44 @@ const MapArea = observer((props) => {
               {(props.store.markerComments[marker] || []).map((comment) => (
                 <p>
                   <span>
-                    {comment.time.toString()}
+                    <FormattedMessage
+                      id='commentPrefix'
+                      values={{
+                        time: (
+                          <FormattedDate
+                            value={comment.time}
+                            year="numeric" month="numeric" day="numeric"
+                            hour="numeric" minute="numeric" second="numeric"
+                          />
+                        )
+                      }}
+                    />
                   </span>
                   <br/>
                   {comment.text}
                 </p>
               ))}
-              <Button variant="contained" color="primary" onClick={toggle}><FormattedMessage id='addNewCommentButton'/></Button>
+              <Button variant="contained" color="primary" onClick={open.bind(null, marker)}>
+                <FormattedMessage id='addNewCommentButton'/>
+              </Button>
             </Popup>
           </Marker>
         )) }
         {/* Using key forces remounting of ZoomControl when zoomInTitle or zoomOutTitle change. */}
         <ZoomControl zoomInTitle={zoomInTitle} zoomOutTitle={zoomOutTitle} key={zoomInTitle + '|' + zoomOutTitle}/>
       </Map>
-      <Dialog open={dialogOpen} onClose={toggle}>
+      <Dialog open={dialogOpen} onClose={close}>
         <DialogTitle>
           <FormattedMessage id='addNewCommentTitle'/>
         </DialogTitle>
         <DialogContent>
-          <TextField multiline/>
+          <TextField multiline value={newMarkerCommentText} onChange={(event) => setNewMarkerCommentText(event.target.value)}/>
         </DialogContent>
         <DialogActions>
-          <Button onClick={toggle} color="primary">
+          <Button onClick={() => {props.store.addCommentToMarker(selectedMarker, {time: new Date(), text: newMarkerCommentText}); close(); }} color="primary">
             <FormattedMessage id='addNewCommentButton'/>
           </Button>
-          <Button onClick={toggle} color="secondary">
+          <Button onClick={close} color="secondary">
             <FormattedMessage id='cancelButton'/>
           </Button>
         </DialogActions>
