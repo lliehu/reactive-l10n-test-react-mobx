@@ -11,10 +11,6 @@ const languageStore = new LanguageStore();
 const messageLogStore = new MessageLogStore();
 const mapStore = new MapStore();
 
-messageLogStore.addLogMessage('testMessage');
-messageLogStore.addLogMessage('testMessage');
-messageLogStore.addLogMessage('testMessage');
-
 window.addEventListener('languagechange', () => {
   if (!languageStore.manuallySelectedLanguage) {
     languageStore.language = navigator.language;
