@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import LanguageSwitcher from './LanguageSwitcher';
+import AlertTest from './AlertTest';
 import { observer } from 'mobx-react';
 import { IntlProvider } from 'react-intl';
 import MessageLog from './MessageLog';
@@ -36,6 +37,7 @@ const App = observer((props) => (
             <LanguageSwitcher store={ props.store }/>
         </Toolbar>
         </AppBar>
+        <AlertTest/>
         <MessageLog messageList={ props.messageLogStore.messageList } />
         <MapNavigator store={props.mapStore} />
         <MapArea messageLogStore={props.messageLogStore} store={props.mapStore} />

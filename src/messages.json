@@ -14,7 +14,9 @@
     "addNewCommentButton": "Add new comment",
     "addNewCommentTitle": "Add new comment",
     "cancelButton": "Cancel",
-    "commentPrefix": "Someone commented {time}:"
+    "commentPrefix": "Someone commented {time}:",
+    "testAlertButton": "Test alert()",
+    "alertTestMessage": "This is message for testing localization of a message in alert()."
   },
   "fi": {
     "applicationName": "Reaktiivinen lokalisointitesti Reactilla ja MobX:llä",
@@ -31,6 +33,8 @@
     "addNewCommentButton": "Lisää uusi kommentti",
     "addNewCommentTitle": "Uuden kommentin lisääminen",
     "cancelButton": "Peru",
-    "commentPrefix": "Joku kommentoi {time}:"
+    "commentPrefix": "Joku kommentoi {time}:",
+    "testAlertButton": "Testaa alert()",
+    "alertTestMessage": "Tämä on viesti, jolla testataan viestin lokalisointia alert()-funktiossa."
   }
 }
