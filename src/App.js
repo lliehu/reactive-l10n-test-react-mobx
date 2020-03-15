@@ -15,8 +15,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
 function getMessages(locale) {
-  // TODO Do this better.
-  return messages[locale.substring(0, 2)]
+  // Fall back to English if messages with current language are not found.
+  return messages[locale.substring(0, 2)] || messages['en']
 }
 
 function getTheme(locale) {
