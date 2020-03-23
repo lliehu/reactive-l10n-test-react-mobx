@@ -9,14 +9,6 @@ export default defineMessages({
         id: 'messageLogTitle',
         defaultMessage: 'Message Log'
     },
-    languageSwitcherTitle: {
-        id: 'languageSwitcherTitle',
-        defaultMessage: 'Language Selection'
-    },
-    currentLanguage: {
-        id: 'currentLanguage',
-        defaultMessage: 'Current language: {language}',
-    },
     zoomInTitle: {
         id: 'zoomInTitle',
         defaultMessage: 'Zoom in'

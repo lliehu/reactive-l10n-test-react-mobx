@@ -2,8 +2,6 @@
   "fi": {
     "applicationName": "Reaktiivinen lokalisointitesti Reactilla ja MobX:llä",
     "messageLogTitle": "Viestiloki",
-    "languageSwitcherTitle": "Kielivalinta",
-    "currentLanguage": "Nykyinen kieli: {language}",
     "zoomInTitle": "Lähennä",
     "zoomOutTitle": "Loitonna",
     "automaticLanguage": "Automaattinen",
