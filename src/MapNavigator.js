@@ -3,6 +3,7 @@ import { FormattedMessage } from 'react-intl';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import messageDescriptors from './messageDescriptors';
 
 const locations = [
   {
@@ -20,7 +21,7 @@ const MapNavigator = (props) => {
   return (
     <div>
       <h2>
-        <FormattedMessage id='mapNavigatorTitle'/>
+        <FormattedMessage {...messageDescriptors.mapNavigatorTitle}/>
       </h2>
       <div style={{width: '200px', margin: 'auto'}}>
         <Autocomplete
@@ -36,7 +37,7 @@ const MapNavigator = (props) => {
         props.store.setCenter(selectedCoordinates);
       }
       }>
-        <FormattedMessage id='navigateMapButton'/>
+        <FormattedMessage {...messageDescriptors.navigateMapButton}/>
       </Button>
     </div>
   );

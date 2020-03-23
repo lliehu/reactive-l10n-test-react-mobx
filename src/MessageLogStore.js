@@ -2,10 +2,10 @@ import { observable, decorate } from 'mobx';
 
 class MessageLogStore {
   messageList = []
-  addLogMessage(messageId, parameters = {}) {
+  addLogMessage(messageDescriptor, parameters = {}) {
     this.messageList.push({
       time: new Date(),
-      messageId,
+      messageDescriptor,
       parameters
     })
   }

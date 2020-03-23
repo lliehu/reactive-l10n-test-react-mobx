@@ -1,11 +1,12 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { FormattedDate, FormattedMessage } from 'react-intl';
+import messageDescriptors from './messageDescriptors';
 
 const MessageLog = observer((props) => (
   <div>
     <h2>
-      <FormattedMessage id='messageLogTitle'/>
+      <FormattedMessage {...messageDescriptors.messageLogTitle}/>
     </h2>
     { props.messageList.map((message, index) => (
       <p key={index}>
@@ -16,7 +17,7 @@ const MessageLog = observer((props) => (
             hour="numeric" minute="numeric" second="numeric"
           />
         ]&nbsp;
-        <FormattedMessage id={message.messageId} values={message.parameters}/>
+        <FormattedMessage {...message.messageDescriptor} values={message.parameters}/>
       </p>
     )) }
   </div>

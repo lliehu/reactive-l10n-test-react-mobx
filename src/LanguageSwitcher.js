@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 import { FormattedMessage } from 'react-intl';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
+import messageDescriptors from './messageDescriptors';
 
 const languages = [
   {
@@ -40,7 +41,7 @@ const LanguageSwitcher = observer((props) => {
           color={ isAutomaticLanguageSelected() ? 'default' : 'inherit' }
           disableElevation
         >
-          <FormattedMessage id='automaticLanguage'/>
+          <FormattedMessage {...messageDescriptors.automaticLanguage}/>
         </Button>
         {languages.map(language => (
           <Button

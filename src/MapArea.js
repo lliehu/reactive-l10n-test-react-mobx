@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react';
 import { useIntl, FormattedDate, FormattedMessage } from 'react-intl';
+import messageDescriptors from './messageDescriptors';
 
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -33,8 +34,8 @@ const mapState = {
 
 const MapArea = observer((props) => {
   const { formatMessage } = useIntl();
-  const zoomInTitle = formatMessage({id: 'zoomInTitle'});
-  const zoomOutTitle = formatMessage({id: 'zoomOutTitle'});
+  const zoomInTitle = formatMessage(messageDescriptors.zoomInTitle);
+  const zoomOutTitle = formatMessage(messageDescriptors.zoomOutTitle);
 
   const [dialogOpen, setDialogOpen] = useState(false);
   const open = (marker) => {
@@ -47,7 +48,7 @@ const MapArea = observer((props) => {
   }
 
   function addMarker(event) {
-    props.messageLogStore.addLogMessage('markerAddedMessage', {
+    props.messageLogStore.addLogMessage(messageDescriptors.markerAddedMessage, {
       position: event.latlng.toString()
     })
     props.store.addMarker(event.latlng)
@@ -58,7 +59,7 @@ const MapArea = observer((props) => {
 
   return (
     <div>
-      <h2><FormattedMessage id='mapTitle'/></h2>
+      <h2><FormattedMessage {...messageDescriptors.mapTitle}/></h2>
       <Map center={props.store.center} zoom={mapState.zoom} zoomControl={false}
         onClick={addMarker}
       >
@@ -73,7 +74,7 @@ const MapArea = observer((props) => {
                 <p>
                   <span>
                     <FormattedMessage
-                      id='commentPrefix'
+                      {...messageDescriptors.commentPrefix}
                       values={{
                         time: (
                           <FormattedDate
@@ -90,7 +91,7 @@ const MapArea = observer((props) => {
                 </p>
               ))}
               <Button variant="contained" color="primary" onClick={open.bind(null, marker)}>
-                <FormattedMessage id='addNewCommentButton'/>
+                <FormattedMessage {...messageDescriptors.addNewCommentButton}/>
               </Button>
             </Popup>
           </Marker>
@@ -100,17 +101,17 @@ const MapArea = observer((props) => {
       </Map>
       <Dialog open={dialogOpen} onClose={close}>
         <DialogTitle>
-          <FormattedMessage id='addNewCommentTitle'/>
+          <FormattedMessage {...messageDescriptors.addNewCommentTitle}/>
         </DialogTitle>
         <DialogContent>
           <TextField multiline value={newMarkerCommentText} onChange={(event) => setNewMarkerCommentText(event.target.value)}/>
         </DialogContent>
         <DialogActions>
           <Button onClick={() => {props.store.addCommentToMarker(selectedMarker, {time: new Date(), text: newMarkerCommentText}); close(); }} color="primary">
-            <FormattedMessage id='addNewCommentButton'/>
+            <FormattedMessage {...messageDescriptors.addNewCommentButton}/>
           </Button>
           <Button onClick={close} color="secondary">
-            <FormattedMessage id='cancelButton'/>
+            <FormattedMessage {...messageDescriptors.cancelButton}/>
           </Button>
         </DialogActions>
       </Dialog>

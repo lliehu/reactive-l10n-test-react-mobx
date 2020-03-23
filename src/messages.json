@@ -1,23 +1,4 @@
 {
-  "en": {
-    "applicationName": "Reactive Localization Test with React and MobX",
-    "messageLogTitle": "Message Log",
-    "languageSwitcherTitle": "Language Selection",
-    "currentLanguage": "Current language: {language}",
-    "zoomInTitle": "Zoom in",
-    "zoomOutTitle": "Zoom out",
-    "automaticLanguage": "Automatic",
-    "mapNavigatorTitle": "Navigate map to",
-    "navigateMapButton": "Navigate",
-    "mapTitle": "Map",
-    "markerAddedMessage": "Marker was added to the map at {position}.",
-    "addNewCommentButton": "Add new comment",
-    "addNewCommentTitle": "Add new comment",
-    "cancelButton": "Cancel",
-    "commentPrefix": "Someone commented {time}:",
-    "testAlertButton": "Test alert()",
-    "alertTestMessage": "This is message for testing localization of a message in alert()."
-  },
   "fi": {
     "applicationName": "Reaktiivinen lokalisointitesti Reactilla ja MobX:llä",
     "messageLogTitle": "Viestiloki",
