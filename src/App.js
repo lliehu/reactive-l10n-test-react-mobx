@@ -14,11 +14,15 @@ import { enUS, fiFI } from '@material-ui/core/locale';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
-window.messages = messages
+import UIMessageStore from './UIMessageStore';
+const uiMessageStore = new UIMessageStore();
+uiMessageStore.setMessages(messages);
+
+window.messages = uiMessageStore.messages;
 
 function getMessages(locale) {
   // Fall back to English if messages with current language are not found.
-  return messages[locale.substring(0, 2)] || null
+  return uiMessageStore.messages[locale.substring(0, 2)] || null
 }
 
 function getTheme(locale) {
