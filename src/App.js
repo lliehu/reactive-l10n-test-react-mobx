@@ -14,6 +14,8 @@ import { enUS, fiFI } from '@material-ui/core/locale';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 
+window.messages = messages
+
 function getMessages(locale) {
   // Fall back to English if messages with current language are not found.
   return messages[locale.substring(0, 2)] || null
