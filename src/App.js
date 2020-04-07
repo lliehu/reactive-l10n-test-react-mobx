@@ -33,7 +33,7 @@ function getTheme(locale) {
   return createMuiTheme({}, materialUiLocale);
 }
 
-const App = observer((props) => (
+const App = (props) => (
   <IntlProvider locale={props.store.language} messages={getMessages(props.store.language)}>
     <ThemeProvider theme={getTheme(props.store.language)}>
       <div className="App">
@@ -50,6 +50,6 @@ const App = observer((props) => (
       </div>
     </ThemeProvider>
   </IntlProvider>
-));
+);
 
-export default App;
+export default observer(App);
