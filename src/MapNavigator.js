@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { useIntl } from 'react-intl';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -18,10 +18,12 @@ const locations = [
 
 const MapNavigator = (props) => {
   const [selectedCoordinates, setSelectedCoordinates] = useState(null);
+  const { formatMessage } = useIntl();
+
   return (
     <div>
       <h2>
-        <FormattedMessage {...messageDescriptors.mapNavigatorTitle}/>
+        { formatMessage(messageDescriptors.mapNavigatorTitle) }
       </h2>
       <div style={{width: '200px', margin: 'auto'}}>
         <Autocomplete
@@ -37,7 +39,7 @@ const MapNavigator = (props) => {
         props.store.setCenter(selectedCoordinates);
       }
       }>
-        <FormattedMessage {...messageDescriptors.navigateMapButton}/>
+        { formatMessage(messageDescriptors.navigateMapButton) }
       </Button>
     </div>
   );
