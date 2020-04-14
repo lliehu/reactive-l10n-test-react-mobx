@@ -30,6 +30,7 @@ function getTheme(locale) {
   if (locale.substring(0, 2) === 'fi') {
     materialUiLocale = fiFI;
   }
+  window.materialUiLocale = materialUiLocale;
   return createMuiTheme({}, materialUiLocale);
 }
 
