@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
+import { observer } from 'mobx-react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -45,4 +46,4 @@ const MapNavigator = (props) => {
   );
 };
 
-export default MapNavigator;
+export default observer(MapNavigator);
