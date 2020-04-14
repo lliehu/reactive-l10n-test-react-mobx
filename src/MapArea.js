@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { observer } from 'mobx-react';
 import { useIntl, FormattedDate } from 'react-intl';
-import messageDescriptors from './messageDescriptors';
+import { useStore } from './UIMessageStoreProvider';
 
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -34,6 +34,7 @@ const mapState = {
 
 const MapArea = observer((props) => {
   const { formatMessage } = useIntl();
+  const { messageDescriptors } = useStore();
   const zoomInTitle = formatMessage(messageDescriptors.zoomInTitle);
   const zoomOutTitle = formatMessage(messageDescriptors.zoomOutTitle);
 

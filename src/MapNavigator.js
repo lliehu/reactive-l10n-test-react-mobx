@@ -4,7 +4,7 @@ import { observer } from 'mobx-react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import messageDescriptors from './messageDescriptors';
+import { useStore } from './UIMessageStoreProvider';
 
 const locations = [
   {
@@ -20,6 +20,7 @@ const locations = [
 const MapNavigator = (props) => {
   const [selectedCoordinates, setSelectedCoordinates] = useState(null);
   const { formatMessage } = useIntl();
+  const { messageDescriptors } = useStore();
 
   return (
     <div>

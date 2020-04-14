@@ -2,12 +2,13 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import { Helmet } from "react-helmet";
 import Typography from '@material-ui/core/Typography';
-import messageDescriptors from './messageDescriptors';
+import { useStore } from './UIMessageStoreProvider';
 import { trace } from 'mobx';
 import { observer } from 'mobx-react';
 
 const Header = observer((props) => {
   const { formatMessage } = useIntl();
+  const { messageDescriptors } = useStore();
 
   trace();
 

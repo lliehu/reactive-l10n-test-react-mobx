@@ -1,10 +1,11 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { useIntl, FormattedDate } from 'react-intl';
-import messageDescriptors from './messageDescriptors';
+import { useStore } from './UIMessageStoreProvider';
 
 const MessageLog = observer((props) => {
   const { formatMessage } = useIntl();
+  const { messageDescriptors } = useStore();
 
   return (
     <div>

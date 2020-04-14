@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 import { useIntl } from 'react-intl';
 import Button from '@material-ui/core/Button';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
-import messageDescriptors from './messageDescriptors';
+import { useStore } from './UIMessageStoreProvider';
 
 const languages = [
   {
@@ -34,6 +34,7 @@ const LanguageSwitcher = observer((props) => {
   }
 
   const { formatMessage } = useIntl();
+  const { messageDescriptors } = useStore();
 
   return (
       <ButtonGroup color="inherit">

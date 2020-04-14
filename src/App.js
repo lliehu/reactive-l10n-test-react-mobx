@@ -6,19 +6,18 @@ import { observer } from 'mobx-react';
 import { IntlProvider } from 'react-intl';
 import MessageLog from './MessageLog';
 import Header from './Header';
-import messages from './messages';
 import MapNavigator from './MapNavigator';
 import MapArea from './MapArea';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { enUS, fiFI } from '@material-ui/core/locale';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import { createStore } from './UIMessageStore';
+import { UIMessageStoreProvider } from './UIMessageStoreProvider';
 
-import UIMessageStore from './UIMessageStore';
-const uiMessageStore = new UIMessageStore();
-uiMessageStore.setMessages(messages);
+const uiMessageStore = createStore();
 
-window.messages = uiMessageStore.messages;
+window.messageStore = uiMessageStore;
 
 function getMessages(locale) {
   // Fall back to English if messages with current language are not found.
@@ -35,22 +34,24 @@ function getTheme(locale) {
 }
 
 const App = (props) => (
-  <IntlProvider locale={props.store.language} messages={getMessages(props.store.language)}>
-    <ThemeProvider theme={getTheme(props.store.language)}>
-      <div className="App">
-        <AppBar position="sticky">
-          <Toolbar>
-            <Header />
-            <LanguageSwitcher store={ props.store }/>
-        </Toolbar>
-        </AppBar>
-        <AlertTest/>
-        <MessageLog messageList={ props.messageLogStore.messageList } />
-        <MapNavigator store={props.mapStore} />
-        <MapArea messageLogStore={props.messageLogStore} store={props.mapStore} />
-      </div>
-    </ThemeProvider>
-  </IntlProvider>
+  <UIMessageStoreProvider store={uiMessageStore}>
+    <IntlProvider locale={props.store.language} messages={getMessages(props.store.language)}>
+      <ThemeProvider theme={getTheme(props.store.language)}>
+        <div className="App">
+          <AppBar position="sticky">
+            <Toolbar>
+              <Header />
+              <LanguageSwitcher store={ props.store }/>
+          </Toolbar>
+          </AppBar>
+          <AlertTest/>
+          <MessageLog messageList={ props.messageLogStore.messageList } />
+          <MapNavigator store={props.mapStore} />
+          <MapArea messageLogStore={props.messageLogStore} store={props.mapStore} />
+        </div>
+      </ThemeProvider>
+    </IntlProvider>
+  </UIMessageStoreProvider>
 );
 
 export default observer(App);
