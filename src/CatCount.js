@@ -8,7 +8,7 @@ const CatCount = (props) => {
 
   return (
     <div>
-      { formatMessage(messageDescriptors.catCount)}
+      { formatMessage(messageDescriptors.catCountMessage)}
     </div>
   );
 }
