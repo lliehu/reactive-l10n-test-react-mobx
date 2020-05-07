@@ -14,6 +14,7 @@
     "cancelButton": "Peru",
     "commentPrefix": "Joku kommentoi {time}:",
     "testAlertButton": "Testaa alert()",
-    "alertTestMessage": "Tämä on viesti, jolla testataan viestin lokalisointia alert()-funktiossa."
+    "alertTestMessage": "Tämä on viesti, jolla testataan viestin lokalisointia alert()-funktiossa.",
+    "catCountMessage": "{count, plural,  one {1 kissa} other {# kissaa}} suunnittelee hänen tappamista."
   }
 }

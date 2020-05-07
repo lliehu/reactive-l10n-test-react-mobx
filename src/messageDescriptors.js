@@ -63,6 +63,6 @@ export default defineMessages({
     },
     catCountMessage: {
         id: 'catCountMessage',
-        defaultMessage: 'test'
+        defaultMessage: '{count, plural,  one {A cat is} other {# cats are}} planning to kill {pronoun, select, male {him} female {her} other {them}}.'
     }
 });
