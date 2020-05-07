@@ -4,6 +4,7 @@ import LanguageSwitcher from './LanguageSwitcher';
 import AlertTest from './AlertTest';
 import { observer } from 'mobx-react';
 import { IntlProvider } from 'react-intl';
+import CatCount from './CatCount';
 import MessageLog from './MessageLog';
 import Header from './Header';
 import MapNavigator from './MapNavigator';
@@ -45,6 +46,7 @@ const App = (props) => (
           </Toolbar>
           </AppBar>
           <AlertTest/>
+          <CatCount/>
           <MessageLog messageList={ props.messageLogStore.messageList } />
           <MapNavigator store={props.mapStore} />
           <MapArea messageLogStore={props.messageLogStore} store={props.mapStore} />
