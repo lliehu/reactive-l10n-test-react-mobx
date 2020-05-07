@@ -60,5 +60,9 @@ export default defineMessages({
     alertTestMessage: {
         id: 'alertTestMessage',
         defaultMessage: 'This is message for testing localization of a message in alert().'
+    },
+    catCountMessage: {
+        id: 'catCountMessage',
+        defaultMessage: 'test'
     }
 });
