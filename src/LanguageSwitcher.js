@@ -16,7 +16,7 @@ const languages = [
   }
 ];
 
-const LanguageSwitcher = observer((props) => {
+const LanguageSwitcher = (props) => {
   function switchLanguageTo(language) {
     props.store.switchLanguageTo(language);
   }
@@ -59,6 +59,6 @@ const LanguageSwitcher = observer((props) => {
         ))}
       </ButtonGroup>
   );
-});
+};
 
-export default LanguageSwitcher;
+export default observer(LanguageSwitcher);
