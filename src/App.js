@@ -5,6 +5,7 @@ import AlertTest from './AlertTest';
 import { observer } from 'mobx-react';
 import { IntlProvider } from 'react-intl';
 import CatCount from './CatCount';
+import CatCountControls from './CatCountControls';
 import MessageLog from './MessageLog';
 import Header from './Header';
 import MapNavigator from './MapNavigator';
@@ -50,6 +51,7 @@ const App = (props) => (
           </AppBar>
           <AlertTest/>
           <CatCount catCountStore={catCountStore}/>
+          <CatCountControls catCountStore={catCountStore}/>
           <MessageLog messageList={ props.messageLogStore.messageList } />
           <MapNavigator store={props.mapStore} />
           <MapArea messageLogStore={props.messageLogStore} store={props.mapStore} />
