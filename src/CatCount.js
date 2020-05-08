@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { observer } from 'mobx-react';
 import { useIntl } from 'react-intl';
 import messageDescriptors from './messageDescriptors';
@@ -6,13 +6,14 @@ import Slider from '@material-ui/core/Slider';
 
 const CatCount = (props) => {
   const { formatMessage } = useIntl();
-  const [count, setCount] = useState(1);
+
+  const { count, pronoun } = props.catCountStore;
 
   return (
     <div>
-      { formatMessage(messageDescriptors.catCountMessage, {count: count, pronoun: 'other'})}
+      { formatMessage(messageDescriptors.catCountMessage, {count: count, pronoun: pronoun})}
         <div style={{width: '200px', margin: 'auto'}}>
-        <Slider value={count} onChange={(event, newValue) => setCount(newValue)} step={1} min={0} max={5}/>
+        <Slider value={count} onChange={(event, newValue) => props.catCountStore.setCount(newValue)} step={1} min={0} max={5}/>
       </div>
     </div>
   );

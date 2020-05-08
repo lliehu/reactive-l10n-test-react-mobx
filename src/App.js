@@ -15,10 +15,13 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import { createStore } from './UIMessageStore';
 import { UIMessageStoreProvider } from './UIMessageStoreProvider';
+import CatCountStore from './CatCountStore';
 
 const uiMessageStore = createStore();
 
 window.messageStore = uiMessageStore;
+
+const catCountStore = new CatCountStore();
 
 function getMessages(locale) {
   // Fall back to English if messages with current language are not found.
@@ -46,7 +49,7 @@ const App = (props) => (
           </Toolbar>
           </AppBar>
           <AlertTest/>
-          <CatCount/>
+          <CatCount catCountStore={catCountStore}/>
           <MessageLog messageList={ props.messageLogStore.messageList } />
           <MapNavigator store={props.mapStore} />
           <MapArea messageLogStore={props.messageLogStore} store={props.mapStore} />
