@@ -64,5 +64,17 @@ export default defineMessages({
     catCountMessage: {
         id: 'catCountMessage',
         defaultMessage: '{count, plural,  one {A cat is} other {# cats are}} planning to kill {pronoun, select, male {him} female {her} other {them}}.'
+    },
+    pronounSelectionMale: {
+        id: 'pronounSelectionMale',
+        defaultMessage: 'He'
+    },
+    pronounSelectionFemale: {
+        id: 'pronounSelectionFemale',
+        defaultMessage: 'She'
+    },
+    pronounSelectionNeutral: {
+        id: 'pronounSelectionNeutral',
+        defaultMessage: 'They'
     }
 });

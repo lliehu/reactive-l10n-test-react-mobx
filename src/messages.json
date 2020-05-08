@@ -15,6 +15,9 @@
     "commentPrefix": "Joku kommentoi {time}:",
     "testAlertButton": "Testaa alert()",
     "alertTestMessage": "Tämä on viesti, jolla testataan viestin lokalisointia alert()-funktiossa.",
-    "catCountMessage": "{count, plural,  one {1 kissa} other {# kissaa}} suunnittelee hänen tappamista."
+    "catCountMessage": "{count, plural,  one {1 kissa} other {# kissaa}} suunnittelee hänen tappamista.",
+    "pronounSelectionMale": "Hän (mies)",
+    "pronounSelectionFemale": "Hän (nainen)",
+    "pronounSelectionNeutral": "Hän (neutraali)"
   }
 }

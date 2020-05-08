@@ -1,8 +1,12 @@
 import { observable, decorate } from 'mobx';
 
+export const PRONOUN_MALE = 'male';
+export const PRONOUN_FEMALE = 'female';
+export const PRONOUN_NEUTRAL = 'other';
+
 class CatCountStore {
   count = 1;
-  pronoun = null;
+  pronoun = 'noneyet';
   setCount(newCount) {
     this.count = newCount;
   }
@@ -13,6 +17,7 @@ class CatCountStore {
 
 decorate(CatCountStore, {
   count: observable,
+  pronoun: observable
 });
 
 
