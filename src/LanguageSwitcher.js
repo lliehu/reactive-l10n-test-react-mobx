@@ -48,6 +48,7 @@ const LanguageSwitcher = observer((props) => {
         </Button>
         {languages.map(language => (
           <Button
+            key={language.code}
             onClick={switchLanguageTo.bind(null, language.code)}
             variant={ isLanguageSelected(language.code) ? 'contained' : 'outlined' }
             color={ isLanguageSelected(language.code) ? 'default' : 'inherit' }
