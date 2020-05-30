@@ -4,6 +4,7 @@ import LanguageSwitcher from './LanguageSwitcher';
 import AlertTest from './AlertTest';
 import { observer } from 'mobx-react';
 import { IntlProvider } from 'react-intl';
+import locizer from 'locizer';
 import CatCount from './CatCount';
 import CatCountControls from './CatCountControls';
 import MessageLog from './MessageLog';
@@ -23,6 +24,20 @@ const uiMessageStore = createStore();
 window.messageStore = uiMessageStore;
 
 const catCountStore = new CatCountStore();
+
+// TODO See more at https://github.com/locize/locize-react-intl-example.
+locizer
+  .init({
+    fallbackLng: "en",
+    referenceLng: "en",
+    // For setting environment variables, see:
+    // https://create-react-app.dev/docs/adding-custom-environment-variables/
+    projectId: process.env.REACT_APP_LOCIZE_PROJECT_ID,
+    apiKey: process.env.REACT_APP_LOCIZE_API_KEY
+  })
+  .load("translation", function(err, translations, lng) {
+    console.log('Load callback called.')
+  })
 
 function getMessages(locale) {
   // Fall back to English if messages with current language are not found.
