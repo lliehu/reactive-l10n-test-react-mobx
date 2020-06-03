@@ -21,9 +21,6 @@ locizer
     projectId: PROJECTID,
     apiKey: process.env.REACT_APP_LOCIZE_API_KEY
   })
-  .load("translation", function(err, translations, lng) {
-    console.log('Load callback called.')
-  })
 
 const translations = {};
 let currentLocale;
