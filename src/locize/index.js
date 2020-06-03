@@ -40,7 +40,7 @@ export class IntlProvider extends Component {
     // return if already loaded
     if (currentLocale && translations[currentLocale] && translations[currentLocale][namespace]) return;
     
-    // load the given file form locize and detect language while doing so
+    // load the given file from Locize and detect language while doing so
     locizer.load(namespace, (err, messages, locale) => {
       currentLocale = locale;
       translations[locale] = messages;
