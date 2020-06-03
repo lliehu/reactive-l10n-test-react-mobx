@@ -83,7 +83,7 @@ export class IntlProvider extends Component {
     // render the react-intl IntlProvider with loaded messages
     return (
       <IP locale={locale} messages={messages}>
-      {children}
+        {children}
       </IP>
       );
   }
