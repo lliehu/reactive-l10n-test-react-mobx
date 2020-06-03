@@ -44,18 +44,12 @@ export class IntlProvider extends Component {
     locizer.load(namespace, (err, messages, locale) => {
       currentLocale = locale;
       translations[locale] = messages;
-      
-      // load react intl locale data
-      /* import('react-intl/locale-data/' + locale)
-      .then(localeData => {
-        addLocaleData(localeData);
-        
-        // update state to render children
-        this.setState({
-          locale,
-          messages
-        });
-      }); */
+
+      // update state to render children
+      this.setState({
+        locale,
+        messages
+      });
       
       // init editor if development
       if (IS_DEV) {
