@@ -14,8 +14,13 @@ const PRIVATE = false; // private publish
 // TODO See more at https://github.com/locize/locize-react-intl-example.
 locizer
   .init({
+    lng: 'fi',
     fallbackLng: FALLBACKLANGUAGE,
     referenceLng: REFERENCELANGUAGE,
+    // No limit. 0 doesn't work because inside the library that would convert
+    // to a condition like 0 >= (0 || 1), which will evaluate to false and
+    // not to true as wanted.
+    loadIfTranslatedOver: -1,
     // For setting environment variables, see:
     // https://create-react-app.dev/docs/adding-custom-environment-variables/
     projectId: PROJECTID,
