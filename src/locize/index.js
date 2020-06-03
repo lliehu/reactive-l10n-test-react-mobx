@@ -14,7 +14,6 @@ const PRIVATE = false; // private publish
 // TODO See more at https://github.com/locize/locize-react-intl-example.
 locizer
   .init({
-    lng: 'fi',
     fallbackLng: FALLBACKLANGUAGE,
     referenceLng: REFERENCELANGUAGE,
     // No limit. 0 doesn't work because inside the library that would convert
@@ -35,46 +34,73 @@ export class IntlProvider extends Component {
     super(props);
     this.state = {
       locale: null,
-      messages: {}
+      messages: {},
+      tick: 0 // For triggering re-render
     };
   }
-  
+
   componentDidMount() {
     const namespace = this.props.namespace || DEFAULTNAMESPACE;
-    
-    // return if already loaded
+
+    // Return if already loaded
     if (currentLocale && translations[currentLocale] && translations[currentLocale][namespace]) return;
     
-    // load the given file from Locize and detect language while doing so
-    locizer.load(namespace, (err, messages, locale) => {
+    // Load the given locale from Locize
+    locizer.load(namespace, this.props.locale, (err, messages, locale) => {
       currentLocale = locale;
       translations[locale] = messages;
 
-      // update state to render children
+      // Update state to trigger a re-render for rendering children
       this.setState({
         locale,
         messages
       });
-      
-      // init editor if development
+
       if (IS_DEV) {
-        // init incontext editor
         locizeEditor.init({
+          enabled: true,
           lng: locale,
           defaultNS: DEFAULTNAMESPACE,
           referenceLng: REFERENCELANGUAGE,
           projectId: PROJECTID,
-          private: PRIVATE
+          private: PRIVATE,
+          onEditorSaved: (lng, ns) => {
+            this.setState({tick: this.state.tick + 1});
+          }
         })
       }
     });
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log('IntlProvider.componentDidUpdate called.');
+
+    if (this.state.tick !== prevState.tick
+      || this.props.namespace !== prevProps.namespace
+      || this.props.locale !== prevProps.locale
+      || this.props.messages !== prevProps.messages)
+    {
+      const namespace = this.props.namespace || DEFAULTNAMESPACE;
+      locizer.load(namespace, this.props.locale, (err, messages, locale) => {
+        currentLocale = locale;
+        translations[locale] = messages;
+
+        this.setState({
+          locale,
+          messages
+        });
+
+        // TODO How to update editor language?
+        console.log('Locize editor instance for inspection:', locizeEditor); // TODO Remove this.
+      });
+    }
   }
   
   render() {
     const { children } = this.props;
     const { locale, messages } = this.state;
     
-    if (!locale) return null; // we wait for render until loaded
+    if (!locale) return null; // Wait for render until loaded
     
     // render the react-intl IntlProvider with loaded messages
     return (
