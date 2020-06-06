@@ -1,0 +1,21 @@
+{
+    "applicationName": "crwdns158:0crwdne158:0",
+    "messageLogTitle": "crwdns160:0crwdne160:0",
+    "zoomInTitle": "crwdns162:0crwdne162:0",
+    "zoomOutTitle": "crwdns164:0crwdne164:0",
+    "automaticLanguage": "crwdns166:0crwdne166:0",
+    "mapNavigatorTitle": "crwdns168:0crwdne168:0",
+    "navigateMapButton": "crwdns170:0crwdne170:0",
+    "mapTitle": "crwdns172:0crwdne172:0",
+    "markerAddedMessage": "crwdns174:0{position}crwdne174:0",
+    "addNewCommentButton": "crwdns176:0crwdne176:0",
+    "addNewCommentTitle": "crwdns178:0crwdne178:0",
+    "cancelButton": "crwdns180:0crwdne180:0",
+    "commentPrefix": "crwdns182:0{time}crwdne182:0",
+    "testAlertButton": "crwdns184:0crwdne184:0",
+    "alertTestMessage": "crwdns186:0crwdne186:0",
+    "catCountMessage": "crwdns188:0count={count}crwdnd188:0pronoun={pronoun}crwdne188:0",
+    "pronounSelectionMale": "crwdns190:0crwdne190:0",
+    "pronounSelectionFemale": "crwdns192:0crwdne192:0",
+    "pronounSelectionNeutral": "crwdns194:0crwdne194:0"
+}

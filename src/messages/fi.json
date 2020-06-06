@@ -1,5 +1,4 @@
 {
-  "fi": {
     "applicationName": "Reaktiivinen lokalisointitesti Reactilla ja MobX:llä",
     "messageLogTitle": "Viestiloki",
     "zoomInTitle": "Lähennä",
@@ -19,5 +18,4 @@
     "pronounSelectionMale": "Hän (mies)",
     "pronounSelectionFemale": "Hän (nainen)",
     "pronounSelectionNeutral": "Hän (neutraali)"
-  }
 }
