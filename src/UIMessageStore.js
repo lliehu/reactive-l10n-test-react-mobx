@@ -1,5 +1,5 @@
 import { observable, decorate } from 'mobx';
-import messagesAa from './messages/aa';
+import messagesEs from './messages/es';
 import messagesFi from './messages/fi';
 import messageDescriptors from './messageDescriptors';
 
@@ -24,7 +24,7 @@ decorate(UIMessageStore, {
 export function createStore() {
   const store = new UIMessageStore();
   store.setMessages({
-    aa: messagesAa,
+    es: messagesEs,
     fi: messagesFi
   });
   store.setMessageDescriptors(messageDescriptors);
