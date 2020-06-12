@@ -21,7 +21,7 @@ const MessageLog = observer((props) => {
               hour="numeric" minute="numeric" second="numeric"
             />
           ]&nbsp;
-          { formatMessage(message.messageDescriptor, message.parameters) }
+          <span>{ formatMessage(message.messageDescriptor, message.parameters) }</span>
         </p>
       )) }
     </div>
