@@ -32,7 +32,7 @@ const mapState = {
   zoom: 12,
 }
 
-const MapArea = observer((props) => {
+const MapArea = (props) => {
   const { formatMessage } = useIntl();
   const { messageDescriptors } = useStore();
   const zoomInTitle = formatMessage(messageDescriptors.zoomInTitle);
@@ -116,6 +116,6 @@ const MapArea = observer((props) => {
       </Dialog>
     </div>
   );
-});
+};
 
-export default MapArea;
+export default observer(MapArea);

@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 import Button from '@material-ui/core/Button';
 import { useStore } from './UIMessageStoreProvider';
 
-const AlertTest = observer((props) => {
+const AlertTest = (props) => {
   const { formatMessage } = useIntl();
   const { messageDescriptors } = useStore();
 
@@ -17,6 +17,6 @@ const AlertTest = observer((props) => {
       <span>{ formatMessage(messageDescriptors.testAlertButton) }</span>
     </Button>
   );
-});
+};
 
-export default AlertTest;
+export default observer(AlertTest);

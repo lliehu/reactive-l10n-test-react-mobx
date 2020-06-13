@@ -3,7 +3,7 @@ import { observer } from 'mobx-react';
 import { useIntl, FormattedDate } from 'react-intl';
 import { useStore } from './UIMessageStoreProvider';
 
-const MessageLog = observer((props) => {
+const MessageLog = (props) => {
   const { formatMessage } = useIntl();
   const { messageDescriptors } = useStore();
 
@@ -26,6 +26,6 @@ const MessageLog = observer((props) => {
       )) }
     </div>
   );
-});
+};
 
-export default MessageLog;
+export default observer(MessageLog);
