@@ -38,7 +38,7 @@ const CatCountControls = (props) => {
           variant={pronoun === pronounMapping.code ? 'contained' : 'outlined'}
           color="primary"
         >
-          { formatMessage(pronounMapping.messageDescriptor) }
+          <span>{ formatMessage(pronounMapping.messageDescriptor) }</span>
         </Button>
         ))}
     </ButtonGroup>

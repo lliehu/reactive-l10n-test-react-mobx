@@ -41,7 +41,7 @@ const MapNavigator = (props) => {
         props.store.setCenter(selectedCoordinates);
       }
       }>
-        { formatMessage(messageDescriptors.navigateMapButton) }
+        <span>{ formatMessage(messageDescriptors.navigateMapButton) }</span>
       </Button>
     </div>
   );

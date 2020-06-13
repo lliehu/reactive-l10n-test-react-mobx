@@ -14,7 +14,7 @@ const AlertTest = observer((props) => {
 
   return (
     <Button color="primary" onClick={testAlert}>
-      { formatMessage(messageDescriptors.testAlertButton) }
+      <span>{ formatMessage(messageDescriptors.testAlertButton) }</span>
     </Button>
   );
 });

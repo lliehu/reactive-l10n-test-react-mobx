@@ -90,7 +90,7 @@ const MapArea = observer((props) => {
                 </p>
               ))}
               <Button variant="contained" color="primary" onClick={open.bind(null, marker)}>
-                { formatMessage(messageDescriptors.addNewCommentButton) }
+                <span>{ formatMessage(messageDescriptors.addNewCommentButton) }</span>
               </Button>
             </Popup>
           </Marker>

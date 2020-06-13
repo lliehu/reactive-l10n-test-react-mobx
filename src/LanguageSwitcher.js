@@ -48,7 +48,7 @@ const LanguageSwitcher = (props) => {
           color={ isAutomaticLanguageSelected() ? 'default' : 'inherit' }
           disableElevation
         >
-          { formatMessage(messageDescriptors.automaticLanguage) }
+          <span>{ formatMessage(messageDescriptors.automaticLanguage) }</span>
         </Button>
         {languages.map(language => (
           <Button
