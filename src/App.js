@@ -3,7 +3,7 @@ import './App.css';
 import LanguageSwitcher from './LanguageSwitcher';
 import AlertTest from './AlertTest';
 import { observer } from 'mobx-react';
-import { IntlProvider } from './locize';
+import { IntlProvider } from 'react-intl';
 import CatCount from './CatCount';
 import CatCountControls from './CatCountControls';
 import MessageLog from './MessageLog';

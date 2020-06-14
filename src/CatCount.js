@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { useIntl } from 'react-intl';
+import { useIntl } from './phraseHookIntegration';
 import messageDescriptors from './messageDescriptors';
 
 const CatCount = (props) => {

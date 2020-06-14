@@ -1,6 +1,7 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { useIntl, FormattedDate } from 'react-intl';
+import { FormattedDate } from 'react-intl-phraseapp';
+import { useIntl } from './phraseHookIntegration';
 import { useStore } from './UIMessageStoreProvider';
 
 const MessageLog = observer((props) => {

@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import LanguageStore from './LanguageStore';
 import MessageLogStore from './MessageLogStore';
 import MapStore from './MapStore';
+import {initializePhraseAppEditor} from 'react-intl-phraseapp'
 
 const languageStore = new LanguageStore();
 const messageLogStore = new MessageLogStore();
@@ -16,6 +17,18 @@ window.addEventListener('languagechange', () => {
     languageStore.language = navigator.language;
   }
 })
+
+let config = {
+  projectId: process.env.REACT_APP_PHRASE_PROJECT_ID,
+  debugMode: true,
+  autoLowercase: false,
+  phraseEnabled: true,
+  prefix: "[[__",
+  suffix: "__]]",
+  fullReparse: true
+};
+
+initializePhraseAppEditor(config);
 
 ReactDOM.render(
   <App store={languageStore} messageLogStore={messageLogStore} mapStore={mapStore} />,

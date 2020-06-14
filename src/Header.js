@@ -1,5 +1,5 @@
 import React from 'react';
-import { useIntl } from 'react-intl';
+import { useIntl } from './phraseHookIntegration';
 import { Helmet } from "react-helmet";
 import Typography from '@material-ui/core/Typography';
 import { useStore } from './UIMessageStoreProvider';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useIntl } from 'react-intl';
+import { useIntl } from './phraseHookIntegration';
 import { observer } from 'mobx-react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
