@@ -23,7 +23,7 @@ export function useIntl() {
                 if (!id) {
                     console.error('Message id is required.');
                 }
-                return originalIntl.formatMessage({id: transformId(id)});
+                return transformId(id);
             }
             else {
                 return originalIntl.formatMessage({id});

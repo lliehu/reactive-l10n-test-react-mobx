@@ -1,10 +1,10 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { FormattedDate } from 'react-intl-phraseapp';
+import { FormattedDate } from 'react-intl';
 import { useIntl } from './phraseHookIntegration';
 import { useStore } from './UIMessageStoreProvider';
 
-const MessageLog = observer((props) => {
+const MessageLog = (props) => {
   const { formatMessage } = useIntl();
   const { messageDescriptors } = useStore();
 
@@ -27,6 +27,6 @@ const MessageLog = observer((props) => {
       )) }
     </div>
   );
-});
+};
 
-export default MessageLog;
+export default observer(MessageLog);
